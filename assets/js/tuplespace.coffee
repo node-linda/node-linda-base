@@ -14,4 +14,5 @@ window.print = (msg) ->
 
 
 $ ->
-  console.log "tuplespace!!! #{name}"
+  $("#btn_write").click (e) ->
+    ts.write tuple

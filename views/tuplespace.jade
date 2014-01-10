@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= name
+  h2 watch #{JSON.stringify(tuple)}
+  ul#log
+  script.
+    var name = "#{name}";
+    var tuple = !{JSON.stringify(tuple)};
+  script(src="/socket.io/socket.io.js")
+  script(src="/linda/linda-socket.io.js")
+  script(src="/javascript/jquery.js")
+  script(src="/js/tuplespace.js")

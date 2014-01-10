@@ -12,7 +12,8 @@
     "jade": "*",
     "direquire": "0.0.3",
     "socket.io": "~0.9.16",
-    "linda-socket.io": "~0.1.2"
+    "linda-socket.io": "~0.1.2",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "grunt-contrib-stylus": "~0.9.0",

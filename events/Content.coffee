@@ -3,7 +3,7 @@ _ = require 'underscore'
 exports.Content = (app) ->
 
   index: (req, res) ->
-    return res.render 'index', title: 'Express City'
+    return res.render 'index', title: 'Node Linda Base'
 
   tuplespace: (req, res) ->
     [name, params] = req.params

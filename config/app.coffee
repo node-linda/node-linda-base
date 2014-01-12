@@ -8,8 +8,10 @@ direquire = require 'direquire'
 
 # Environment
 
-for k, v of require path.resolve 'config', 'env'
-  process.env[k.toUpperCase()] = v
+fs.exists path.resolve('config', 'env.json'), (exists) ->
+  return unless exists
+  for k, v of require path.resolve 'config', 'env.json'
+    process.env[k.toUpperCase()] = v
 
 # Application
 

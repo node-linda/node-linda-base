@@ -36,3 +36,15 @@ Node-Linda-Base
 
       -t, --type  : event or model or helper
       -n, --name  : name of file
+
+## Deploy on Heroku
+
+    % heroku create
+    % heroku labs:enable websockets
+    % heroku config:set NODE_ENV=production
+    % git push heroku master
+    % heroku open
+
+rename
+
+    % heroku apps:rename YOUR-APP-NAME

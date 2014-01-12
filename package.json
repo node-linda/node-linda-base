@@ -29,5 +29,23 @@
   "devDependencies": {
     "supertest": "~0.8.0",
     "mocha": "~1.13.0"
-  }
+  },
+  "description": "Node-Linda-Base",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/node-linda/node-linda-base.git"
+  },
+  "keywords": [
+    "linda",
+    "linda-socket.io"
+  ],
+  "author": "Sho Hashimoto <hashimoto@shokai.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/node-linda/node-linda-base/issues"
+  },
+  "homepage": "https://github.com/node-linda/node-linda-base"
 }

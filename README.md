@@ -1,43 +1,36 @@
 Node-Linda-Base
 ===============
 
-## config
 
-    cp config/env.json.sample config/env.json
+Demo
+----
 
-## tasks
+* http://node-linda-base.herokuapp.com
 
-### run as development mode
 
-    make dev
+Install Dependencies
+--------------------
 
-### run as production mode
+    % npm install
+    % npm install coffee-script grunt-cli -g
 
-    make run
 
-### build assets by grunt
+Config
+------
 
-    make build
-    // or
-    make watch
+    % cp config/env.json.sample config/env.json
 
-### run test
+Run
+---
 
-    make test
+    % grunt build
+    % make dev
 
-### foreman - manage process
+=> http://localhost:3000
 
-    foreman start
 
-### scaffold - 超simple generator
-
-    $ ./bin/scaffold
-    Usage: scaffold -t [type] -n [name]
-
-      -t, --type  : event or model or helper
-      -n, --name  : name of file
-
-## Deploy on Heroku
+Deploy on Heroku
+----------------
 
     % heroku create
     % heroku labs:enable websockets
@@ -45,6 +38,6 @@ Node-Linda-Base
     % git push heroku master
     % heroku open
 
-rename
+rename your app
 
     % heroku apps:rename YOUR-APP-NAME

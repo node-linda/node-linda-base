@@ -13,4 +13,11 @@ exports.Content = (app) ->
     while params.length > 1
       [k,v] = params.splice(0, 2)
       tuple[k] = v
-    return res.render 'tuplespace', name: name, tuple: tuple
+
+    args = {
+      name: name,
+      tuple: tuple,
+      title: "#{name} / #{JSON.stringify(tuple)}"
+    }
+
+    return res.render 'tuplespace', args

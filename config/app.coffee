@@ -46,6 +46,6 @@ app = module.exports = ( ->
 ( ->
   Content = (app.get 'events').Content app
   app.get '/', Content.index
-  app.get /^\/([^\/]+)\/tuple$/, Content.tuplespace
+  app.get '/:space_name/tuple', Content.tuplespace
 )()
 

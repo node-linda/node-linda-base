@@ -6,7 +6,7 @@ exports.Content = (app) ->
     return res.render 'index', title: 'Node Linda Base'
 
   tuplespace: (req, res) ->
-    name = req.params.space_name
+    name = req.params.tuplespace
     tuple = req.query
 
     args = {

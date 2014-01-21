@@ -15,11 +15,6 @@ Install Dependencies
     % npm install coffee-script grunt-cli -g
 
 
-Config
-------
-
-    % cp config/env.json.sample config/env.json
-
 Run
 ---
 

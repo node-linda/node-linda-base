@@ -8,13 +8,6 @@ express = require 'express'
 direquire = require 'direquire'
 debug = require('debug')('coah')
 
-# Environment
-
-fs.exists path.resolve('config', 'env.json'), (exists) ->
-  return unless exists
-  for k, v of require path.resolve 'config', 'env.json'
-    process.env[k.toUpperCase()] = v
-
 # Application
 
 app = exports.app = express()

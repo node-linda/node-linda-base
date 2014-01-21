@@ -1,7 +1,9 @@
 .Apple*
 .DS_Store
+.tmp
 dist
 public/css
 public/js
 node_modules
 config/env.json
+*.log

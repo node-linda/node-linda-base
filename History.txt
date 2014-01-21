@@ -1,0 +1,7 @@
+=== 0.0.1 2014-1-21
+
+* migrate template from @geta6/express-city to @geta6/coah  #9
+
+=== 0.0.1 2014-1-13
+
+* first release

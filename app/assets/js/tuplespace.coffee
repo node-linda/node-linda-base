@@ -14,7 +14,7 @@ linda.io.on "disconnect", ->
 
 print = (msg) ->
   console.log msg
-  $("#log").prepend $("<li>").text(JSON.stringify msg)
+  $("#log").prepend $("<li>").text(JSON.stringify msg).fadeIn(300)
 
 status = (msg) ->
   console.log msg

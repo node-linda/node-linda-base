@@ -19,10 +19,10 @@ loop
 while arg = process.argv.shift()
   switch arg
     when '-t', '--type'
-      type = process.argv.shift()
+      type = process.argv.shift().toLowerCase()
       type = no unless /(event|model|helper)/.test type
     when '-n', '--name'
-      name = String process.argv.shift()
+      name = String process.argv.shift().toLowerCase()
       name = no if 1 > name.length
 
 if !type or !name
@@ -40,18 +40,24 @@ String::toUpperCapital = ->
 type = type.trim()
 name = name.trim()
 
-if /event/.test type
-  namepath = path.resolve 'events', "#{name.toUpperCapital()}.coffee"
+if /^e/.test type
+  namepath = path.resolve 'app', 'events', "#{name.toUpperCapital()}.coffee"
+  if fs.existsSync namepath
+    return console.log "file exists"
   fs.writeFileSync namepath, """
+    debug = require('debug')('coah:events:#{name}')
     exports.#{name.toUpperCapital()} = (app) ->
       # methods
 
     """
   return console.log " -> #{namepath}"
 
-if /model/.test type
-  namepath = path.resolve 'models', "#{name.toUpperCapital()}.coffee"
+if /^m/.test type
+  namepath = path.resolve 'app', 'models', "#{name.toUpperCapital()}.coffee"
+  if fs.existsSync namepath
+    return console.log "file exists"
   fs.writeFileSync namepath, """
+    debug = require('debug')('coah:models:#{name}')
     mongoose = require 'mongoose'
 
     #{name.toUpperCapital()}Model = new mongoose.Schema
@@ -72,9 +78,12 @@ if /model/.test type
     """
   return console.log " -> #{namepath}"
 
-if /helper/.test type
-  namepath = path.resolve 'helper', "#{name}.coffee"
+if /^h/.test type
+  namepath = path.resolve 'app', 'helper', "#{name}.coffee"
+  if fs.existsSync namepath
+    return console.log "file exists"
   return fs.writeFileSync namepath, """
+    debug = require('debug')('coah:helper:#{name}')
     exports.#{name} = ->
       return null
     """

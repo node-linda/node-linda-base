@@ -1,6 +1,8 @@
 Node-Linda-Base
 ===============
 
+[![Travis-CI Build status](https://travis-ci.org/node-linda/node-linda-base.png)](https://travis-ci.org/node-linda/node-linda-base)
+
 
 Demo
 ----

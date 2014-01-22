@@ -21,7 +21,7 @@ Run
 ---
 
     % grunt build
-    % make dev
+    % grunt server
 
 => http://localhost:3000
 

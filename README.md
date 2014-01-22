@@ -26,6 +26,11 @@ Run
 => http://localhost:3000
 
 
+Debug
+-----
+
+    % DEBUG=linda* grunt server
+
 Deploy on Heroku
 ----------------
 
@@ -38,3 +43,8 @@ Deploy on Heroku
 rename your app
 
     % heroku apps:rename YOUR-APP-NAME
+
+show logs on heroku
+
+    % heroku config:set 'DEBUG=*'
+    % heroku logs --tail

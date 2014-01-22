@@ -93,7 +93,7 @@ module.exports = (grunt) ->
         files: [{
           expand: yes
           cwd: 'app/assets/'
-          src: [ '**/*' , '!**/*.{coffee,styl,jade}' ]
+          src: [ '**/*' , '!**/*.{js,coffee,styl,jade}' ]
           dest: '.tmp'
         }]
       release:

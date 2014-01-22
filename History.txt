@@ -1,4 +1,10 @@
-=== 0.0.1 2014-1-21
+=== 0.1.1 2014-1-22
+
+* show git tag (version) on bottom of page  #10
+* use Travis-CI  #11
+* jump on edit tuplespace name and tuple data  #4
+
+=== 0.1.0 2014-1-21
 
 * migrate template from @geta6/express-city to @geta6/coah  #9
 

@@ -1,3 +1,8 @@
+=== 0.1.2 2014-1-22
+
+* update "linda-socket.io" npm v0.1.7
+* print logs using "debug" npm
+
 === 0.1.1 2014-1-22
 
 * show git tag (version) on bottom of page  #10

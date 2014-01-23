@@ -29,6 +29,7 @@ Run
 Debug
 -----
 
+    % grunt
     % DEBUG=linda* grunt server
 
 Deploy on Heroku

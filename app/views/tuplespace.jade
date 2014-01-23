@@ -13,7 +13,7 @@ block content
   ul#log
   script.
     var name = "#{name}";
-    var tuple = !{JSON.stringify(tuple)};
+    var tuple = JSON.parse(unescape("!{escape(JSON.stringify(tuple))}"));
   script(src="/socket.io/socket.io.js")
   script(src="/linda/linda-socket.io.js")
   script(src="/js/jquery.js")

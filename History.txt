@@ -1,3 +1,7 @@
+=== 0.1.5 2014-1-23
+
+* escape json at server-side then unescape at client-side #14
+
 === 0.1.4 2014-1-23
 
 * install grunt-cli into project local  #13

@@ -103,8 +103,6 @@ $ ->
     if JSON.stringify(_tuple) != JSON.stringify(tuple)
       location.href = create_url(name, _tuple)
 
-  $('#suggest_box').hide()
-
   window.query_suggester.onSuggest (tuples) ->
     for i,index in tuples by -1
       if JSON.stringify(i) is JSON.stringify(window.tuple)

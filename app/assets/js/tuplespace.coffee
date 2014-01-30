@@ -36,9 +36,9 @@ class QueryManager
     count = {}
     for k,v of @count
       if !count[v] or (count[v].length < k.length)
-        count[v] = k
+        count[v-(0.001*k.length)] = k
     results = []
-    for k in Object.keys(count) by -1
+    for k in Object.keys(count).sort( (a,b) -> a < b )
       results.push JSON.parse count[k]
     return results
 

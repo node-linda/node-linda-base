@@ -17,29 +17,29 @@ class QueryManager
     @count = {}
 
   push: (tuple) ->
-    kv = []
-    for k,v of tuple
-      if typeof v is 'string'
-        kv.push "#{k}=#{v}"
+    keys = []
+    for key in Object.keys(tuple)
+      if typeof tuple[key] is 'string'
+        keys.push key
     for n in [1..2]
-      kv.permutation n, (items) =>
-        key = items.join('&')
-        unless @count[key]
-          @count[key] = 1
+      keys.permutation n, (keys) =>
+        _tuple = {}
+        for key in keys
+          _tuple[key] = tuple[key]
+        name = JSON.stringify _tuple
+        unless @count[name]
+          @count[name] = 1
         else
-          @count[key] += 1
+          @count[name] += 1
 
   suggest: ->
     count = {}
     for k,v of @count
-      count[v+Math.random()] = k
+      if !count[v] or (count[v].length < k.length)
+        count[v] = k
     results = []
-    for k in Object.keys(count)
-      tuple = {}
-      for kv in count[k].split('&')
-        [_, k, v] = kv.match(/^([^=]+)=(.+)$/)
-        tuple[k] = v
-      results.push tuple
+    for k in Object.keys(count) by -1
+      results.push JSON.parse count[k]
     return results
 
 

@@ -1,3 +1,7 @@
+=== 0.1.6 2014-1-31
+
+* suggest watch query on browser #15
+
 === 0.1.5 2014-1-23
 
 * escape json at server-side then unescape at client-side #14

@@ -12,9 +12,10 @@ Array.prototype.permutation = (count, callback) ->
   permut @, []
 
 
-class QueryManager
+class QuerySuggester
   constructor: ->
     @count = {}
+    setInterval @suggest, 2000
 
   push: (tuple) ->
     keys = []
@@ -32,7 +33,7 @@ class QueryManager
         else
           @count[name] += 1
 
-  suggest: ->
+  suggest: =>
     count = {}
     for k,v of @count
       if !count[v] or (count[v].length < k.length)
@@ -40,13 +41,18 @@ class QueryManager
     results = []
     for k in Object.keys(count).sort( (a,b) -> a < b )
       results.push JSON.parse count[k]
-    return results
+    if typeof @on_suggest is 'function'
+      @on_suggest results
+
+  onSuggest: (callback) ->
+    if typeof callback is 'function'
+      @on_suggest = callback
 
 
 socket = io.connect("#{location.protocol}//#{location.host}")
 window.linda = new Linda().connect(socket)
 window.ts = linda.tuplespace(name)
-window.query_manager = new QueryManager
+window.query_suggester = new QuerySuggester
 
 linda.io.on "connect", ->
   status("connecting")
@@ -54,7 +60,7 @@ linda.io.on "connect", ->
   ts.watch tuple, (err, res) ->
     return if err
     print res.data
-    query_manager.push res.data
+    query_suggester.push res.data
 
 linda.io.on "disconnect", ->
   status("disconnected..")
@@ -98,20 +104,17 @@ $ ->
       location.href = create_url(name, _tuple)
 
   $('#suggest_box').hide()
-  setTimeout suggest_query, 2000
 
-suggest_query = (interval=2000)->
-  tuples = query_manager.suggest()
-  for i,index in tuples by -1
-    tuples.splice index, 1 if JSON.stringify(i) == JSON.stringify(window.tuple)
-  if tuples.length > 0
-    $("#suggest_box").show()
-    suggest_dom = $("#suggest").html('')
-    for tuple,index in tuples[0...3]
-      suggest_dom.append(if index is 0 then ' watch ' else ' or ').
-      append(
-        $('<a>').attr('href', create_url(name, tuple)).
-        text(JSON.stringify tuple)
-      )
-  return unless typeof interval is 'number' and interval > 0
-  setTimeout suggest_query, interval
+  window.query_suggester.onSuggest (tuples) ->
+    for i,index in tuples by -1
+      if JSON.stringify(i) is JSON.stringify(window.tuple)
+        tuples.splice index, 1
+    if tuples.length > 0
+      $("#suggest_box").show()
+      suggest_dom = $("#suggest").html('')
+      for tuple,index in tuples[0...3]
+        suggest_dom.append(if index is 0 then ' watch ' else ' or ').
+        append(
+          $('<a>').attr('href', create_url(name, tuple)).
+          text(JSON.stringify tuple)
+        )

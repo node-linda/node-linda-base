@@ -46,6 +46,7 @@ class QueryManager
 socket = io.connect("#{location.protocol}//#{location.host}")
 window.linda = new Linda().connect(socket)
 window.ts = linda.tuplespace(name)
+window.query_manager = new QueryManager
 
 linda.io.on "connect", ->
   status("connecting")
@@ -53,6 +54,7 @@ linda.io.on "connect", ->
   ts.watch tuple, (err, res) ->
     return if err
     print res.data
+    query_manager.push res.data
 
 linda.io.on "disconnect", ->
   status("disconnected..")
@@ -95,14 +97,6 @@ $ ->
     if JSON.stringify(_tuple) != JSON.stringify(tuple)
       location.href = create_url(name, _tuple)
 
-window.query_manager = new QueryManager
-
-linda.io.on "connect", ->
-  ts.watch tuple, (err, res) ->
-    return if err
-    query_manager.push res.data
-
-$ ->
   $('#suggest_box').hide()
   setTimeout suggest_query, 2000
 

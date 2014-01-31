@@ -1,3 +1,7 @@
+=== 0.1.7 2014-1-31
+
+* fix query suggest  #15
+
 === 0.1.6 2014-1-31
 
 * suggest watch query on browser #15

@@ -35,5 +35,11 @@ app.get '/', Content.index
 app.get '/:tuplespace', Content.tuplespace
 
 server = exports.server = http.createServer app
+
+# Socket.IO
 io = require('socket.io').listen(server)
+if process.env.NODE_ENV is 'production'
+  io.set 'log level', 2
+
+# Linda
 linda = require('linda-socket.io').Linda.listen(io: io, server: server);

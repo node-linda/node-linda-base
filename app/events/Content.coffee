@@ -7,7 +7,12 @@ exports.Content = (app) ->
 
   tuplespace: (req, res) ->
     name = req.params.tuplespace
-    tuple = req.query
+    tuple = {}
+    for k,v of req.query
+      if typeof v is 'string' and /^([1-9]\d+|\d)(\.\d+)?$/.test v
+        tuple[k] = v - 0
+      else
+        tuple[k] = v
 
     args = {
       name: name,

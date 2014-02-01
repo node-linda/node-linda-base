@@ -1,38 +1,43 @@
-=== 0.1.7 2014-1-31
+=== 0.1.8 2014-02-01
+
+* not use uglify if NODE_ENV is not production  #16
+* modify socket.io log level on production mode
+
+=== 0.1.7 2014-01-31
 
 * fix query suggest  #15
 
-=== 0.1.6 2014-1-31
+=== 0.1.6 2014-01-31
 
 * suggest watch query on browser #15
 
-=== 0.1.5 2014-1-23
+=== 0.1.5 2014-01-23
 
 * escape json at server-side then unescape at client-side #14
 
-=== 0.1.4 2014-1-23
+=== 0.1.4 2014-01-23
 
 * install grunt-cli into project local  #13
 
-=== 0.1.3 2014-1-23
+=== 0.1.3 2014-01-23
 
 * update "linda-socket.io" npm v0.2.0
 
-=== 0.1.2 2014-1-22
+=== 0.1.2 2014-01-22
 
 * update "linda-socket.io" npm v0.1.7
 * print logs using "debug" npm
 
-=== 0.1.1 2014-1-22
+=== 0.1.1 2014-01-22
 
 * show git tag (version) on bottom of page  #10
 * use Travis-CI  #11
 * jump on edit tuplespace name and tuple data  #4
 
-=== 0.1.0 2014-1-21
+=== 0.1.0 2014-01-21
 
 * migrate template from @geta6/express-city to @geta6/coah  #9
 
-=== 0.0.1 2014-1-13
+=== 0.0.1 2014-01-13
 
 * first release

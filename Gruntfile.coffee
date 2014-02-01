@@ -56,7 +56,10 @@ module.exports = (grunt) ->
   grunt.registerTask 'buildjs', [
     'coffee:dist'
     'coffeelint:client'
-    'uglify'
+    if process.env.NODE_ENV is 'production'
+      'uglify'
+    else
+      'copy:rawjs'
   ]
 
   grunt.registerTask 'buildcss', [
@@ -72,7 +75,8 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'buildstatic', [
-    'copy'
+    'copy:dist'
+    'copy:release'
     'imagemin'
   ]
 
@@ -102,6 +106,13 @@ module.exports = (grunt) ->
           cwd: 'app/assets/'
           src: [ '**/*', '!**/*.{jpg,png,gif,coffee,styl,jade}' ]
           dest: 'public'
+        }]
+      rawjs:
+        files: [{
+          expand: yes
+          cwd: '.tmp/'
+          src: [ '*.js', '**/*.js' ]
+          dest: 'public/'
         }]
 
     imagemin:

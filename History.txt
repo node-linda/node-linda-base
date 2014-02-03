@@ -1,3 +1,8 @@
+=== 0.1.9 2014-02-03
+
+* add HTTP interface writing tuple  #17
+* cast URL query value string to number
+
 === 0.1.8 2014-02-01
 
 * not use uglify if NODE_ENV is not production  #16

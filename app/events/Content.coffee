@@ -15,9 +15,21 @@ exports.Content = (app) ->
         tuple[k] = v
 
     args = {
+      req: req
       name: name,
       tuple: tuple,
       title: "#{name} / #{JSON.stringify(tuple)}"
     }
 
     return res.render 'tuplespace', args
+
+  writeTuple: (req, res) ->
+    from = req.socket._peername.address
+    name = req.params.tuplespace
+    try
+      tuple = JSON.parse req.body.tuple
+    catch
+      res.statusCode = 400
+      return res.end 'Bad Request: invalid JSON'
+    process.linda.tuplespace(name).write tuple, {from: from}
+    res.end JSON.stringify tuple

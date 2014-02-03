@@ -33,6 +33,7 @@ if process.env.NODE_ENV isnt 'production'
 Content = (app.get 'events').Content app
 app.get '/', Content.index
 app.get '/:tuplespace', Content.tuplespace
+app.post '/:tuplespace', Content.writeTuple
 
 server = exports.server = http.createServer app
 
@@ -42,4 +43,4 @@ if process.env.NODE_ENV is 'production'
   io.set 'log level', 2
 
 # Linda
-linda = require('linda-socket.io').Linda.listen(io: io, server: server);
+process.linda = require('linda-socket.io').Linda.listen(io: io, server: server);

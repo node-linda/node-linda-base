@@ -24,6 +24,10 @@ exports.Content = (app) ->
     return res.render 'tuplespace', args
 
   writeTuple: (req, res) ->
+    res.header 'Access-Control-Allow-Origin', '*'
+    res.header 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'
+    res.header 'Access-Control-Allow-Headers', 'Content-Type'
+
     from = req.socket._peername.address
     name = req.params.tuplespace
     try

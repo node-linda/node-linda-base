@@ -43,4 +43,4 @@ if process.env.NODE_ENV is 'production'
   io.set 'log level', 2
 
 # Linda
-process.linda = require('linda-socket.io').Linda.listen(io: io, server: server);
+process.linda = require('linda').Server.listen(io: io, server: server);

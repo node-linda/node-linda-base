@@ -15,7 +15,7 @@
     "direquire": "0.0.3",
     "debug": "*",
     "socket.io": "~> 1.0",
-    "linda": "~> 1.0",
+    "linda": "git://github.com/node-linda/linda.git#14_keepalive_heroku",
     "lodash": "~2.4.1",
     "coffee-script": "~1.6",
     "coffee-errors": "~0.8.5",

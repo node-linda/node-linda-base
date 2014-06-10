@@ -1,7 +1,7 @@
 {
   "name": "node-linda-base",
   "description": "Node-Linda-Base",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "prestart": "./node_modules/grunt-cli/bin/grunt build",

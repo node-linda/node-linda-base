@@ -1,3 +1,8 @@
+=== 1.0.1 2014-06-10
+
+* keepalive heroku worker
+* use linda v1.0.1
+
 === 1.0.0 2014-06-03
 
 * use socket.io and linda 1.0.x

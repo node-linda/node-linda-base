@@ -1,8 +1,8 @@
 Node-Linda-Base
 ===============
 
-[![Build Status](https://travis-ci.org/node-linda/node-linda-base.png?branch=master)](https://travis-ci.org/node-linda/node-linda-base)
-
+- [![Build Status](https://travis-ci.org/node-linda/node-linda-base.png?branch=master)](https://travis-ci.org/node-linda/node-linda-base)
+- [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Demo
 ----
@@ -36,7 +36,6 @@ Deploy on Heroku
 ----------------
 
     % heroku create
-    % heroku labs:enable websockets
     % heroku config:set NODE_ENV=production
     % git push heroku master
     % heroku open

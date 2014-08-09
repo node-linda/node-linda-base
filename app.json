@@ -1,0 +1,9 @@
+{
+  "name": "node-linda-base",
+  "description": "linda server",
+  "website": "https://github.com/node-linda/node-linda-base",
+  "env": {
+    "NODE_ENV": "production",
+    "DEBUG": "*"
+  }
+}

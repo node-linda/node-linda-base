@@ -3,7 +3,7 @@ exports.Content = (app) ->
 
   index: (req, res) ->
     debug 'index'
-    return res.render 'index', title: 'Node Linda Base'
+    return res.render 'index', title: 'pullreq test app'
 
   tuplespace: (req, res) ->
     name = req.params.tuplespace

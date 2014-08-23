@@ -1,3 +1,9 @@
+DEPRECATED
+==========
+
+This project was moved. Use `linda-server` in [linda](https://github.com/node-linda/linda)
+
+
 Node-Linda-Base
 ===============
 
